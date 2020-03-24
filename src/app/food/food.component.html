@@ -1,0 +1,27 @@
+<div class="card highlight-card card-small">
+  <span>Angular Global Food Market</span>
+</div>
+
+<div class="card-container">
+  <!-- foods: the list of foods in the component.  food: the current item in the loop -->
+  <div *ngFor="let food of foods">
+    <span class="card" (click)="onSelect(food)">{{ food.name }}</span>
+  </div>
+</div>
+
+<section *ngIf="selectedFood">
+  <h2>Food Details</h2>
+  <fieldset>
+    <label class="lbl">Id:</label>
+    <input [(ngModel)]="selectedFood.id" />
+  </fieldset>
+  <fieldset>
+    <label class="lbl">Name:</label>
+    <input [(ngModel)]="selectedFood.name" />
+  </fieldset>
+  <fieldset>
+    <label class="lbl">Country:</label>
+    <input [(ngModel)]="selectedFood.country" />
+  </fieldset>
+  <button (click)="onSelect(null)" class="btn">Hide/Reset</button>
+</section>
